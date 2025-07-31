@@ -9,7 +9,7 @@ from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExport
 logging.basicConfig(level=logging.DEBUG)
 
 # Your Jaeger VM public IP and port
-OTLP_JAEGER_ENDPOINT = "35.234.11.8:4317"
+OTLP_JAEGER_ENDPOINT = "35.234.11.8"
 
 # Set up tracer and OTLP exporter
 trace.set_tracer_provider(TracerProvider())
