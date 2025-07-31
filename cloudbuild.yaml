@@ -1,14 +1,15 @@
 steps:
-  - name: 'python:3.10'
-    id: Install and Trace
-    entrypoint: bash
-    args:
-      - -c
-      - |
-        pip install -r requirements.txt
-        python otel_trace.py
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/trace-demo', '.']
 
-timeout: 900s
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/trace-demo']
 
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'run',
+      '--rm',
+      'gcr.io/$PROJECT_ID/trace-demo'
+    ]
 options:
   logging: CLOUD_LOGGING_ONLY
