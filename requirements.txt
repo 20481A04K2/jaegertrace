@@ -2,3 +2,4 @@ fastapi
 uvicorn
 opentelemetry-sdk
 opentelemetry-exporter-jaeger
+deprecated
