@@ -1,13 +1,12 @@
 steps:
   - name: 'python:3.10'
-    id: Install Dependencies
-    entrypoint: pip
-    args: ['install', '-r', 'requirements.txt']
-
-  - name: 'python:3.10'
-    id: Trace CI/CD Pipeline
-    entrypoint: python
-    args: ['otel_trace.py']
+    id: Install and Trace
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        pip install -r requirements.txt
+        python otel_trace.py
 
 timeout: 900s
 
