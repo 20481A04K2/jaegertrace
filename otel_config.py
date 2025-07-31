@@ -6,7 +6,7 @@ from opentelemetry.sdk.trace.export import BatchSpanProcessor
 def configure_tracer():
     trace.set_tracer_provider(TracerProvider())
     jaeger_exporter = JaegerExporter(
-        agent_host_name="34.9.8.45",  # replace this
+        agent_host_name="35.234.11.8",  # replace this
         agent_port=6831,
     )
     span_processor = BatchSpanProcessor(jaeger_exporter)
